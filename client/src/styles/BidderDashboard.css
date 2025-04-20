@@ -1,112 +1,148 @@
 .bidder-dashboard {
-    background-color: #1a1a1a;
-    font-family: 'Georgia', serif;
-    color: #f5f5f0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow-y: auto;
-  }
-  
-  .bidder-nav {
-    background-color: #1a1a1a;
-    padding: 1.5rem;
-    border-bottom: 2px solid #d4af37;
-  }
-  
-  .bidder-nav h2 {
-    color: #d4af37;
-    margin: 0 0 1rem 0;
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .bidder-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .bidder-nav li {
-    margin-bottom: 0.75rem;
-  }
-  
-  .bidder-nav a {
-    color: #f5f5f0;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-  }
-  
-  .bidder-nav a:hover {
-    color: #d4af37;
-  }
-  
-  .bidder-content {
-    flex: 1;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    overflow-y: auto;
-    height: auto;
-  }
-  
-  .auction-list {
-    background-color: #2d2d2d;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-    padding: 1.5rem;
-  }
-  
-  .auction-list h3 {
-    color: #d4af37;
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    font-weight: 600;
-  }
-  
-  .auction-list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .auction-list li {
-    padding: 1.2rem;
-    border-bottom: 1px solid #444;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .auction-list li:hover {
-    background-color: #333;
-  }
-  
-  .auction-list li:last-child {
-    border-bottom: none;
-  }
-  
-  p {
-    margin: 0.75rem 0;
-    color: #ccc;
-  }
-  
-  @media (max-width: 768px) {
-    .bidder-content {
-      padding: 1rem;
-    }
-    .bidder-nav {
-      padding: 1rem;
-    }
-    .bidder-nav h2 {
-      font-size: 1.4rem;
-    }
-    .auction-list {
-      padding: 1rem;
-    }
-    .auction-list h3 {
-      font-size: 1.2rem;
-    }
-  }
+  display: flex;
+  min-height: 100vh;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.bidder-nav {
+  width: 250px;
+  background: #2a2a2a;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+}
+
+.bidder-nav h2 {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bidder-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.bidder-nav li {
+  margin: 15px 0;
+}
+
+.bidder-nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.bidder-nav a:hover {
+  color: #ffd700;
+  background: #333;
+  border-radius: 5px;
+}
+
+.bidder-content {
+  margin-left: 270px;
+  padding: 20px;
+  flex: 1;
+}
+
+.auction-detail {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.auction-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auction-header h2 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.auction-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 2px solid #ffd700;
+}
+
+.auction-info {
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #ccc;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.current-price, .end-time {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.current-price span {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.bid-section, .bid-history {
+  margin-top: 20px;
+}
+
+.bid-section h3, .bid-history h3 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.bids-list {
+  list-style: none;
+  padding: 0;
+}
+
+.bid-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #333;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.bid-item:hover {
+  background: #444;
+}
+
+.bidder-name, .bid-amount, .bid-time {
+  flex: 1;
+  text-align: center;
+}
+
+.bid-amount {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.loading {
+  color: #ccc;
+}
+
+.error {
+  color: #ff4444;
+}

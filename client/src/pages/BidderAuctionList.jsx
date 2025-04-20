@@ -14,16 +14,23 @@ const BidderAuctionList = () => {
     const fetchAuctions = async () => {
       try {
         const token = localStorage.getItem("token");
+        console.log("Fetching auctions with token:", token);
         const response = await axios.get("http://localhost:9000/api/auction", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        const activeAuctions = response.data.filter(
-          (auction) => auction.status === "active" && new Date(auction.endTime) > new Date()
-        );
+        console.log("Fetched auctions:", response.data);
+
+        // Filter for active auctions only (between startTime and endTime)
+        const now = new Date();
+        const activeAuctions = response.data.filter((auction) => {
+          const startTime = new Date(auction.startTime);
+          const endTime = new Date(auction.endTime);
+          return now >= startTime && now <= endTime;
+        });
         setAuctions(activeAuctions);
       } catch (err) {
+        console.error("Auction fetch error:", err.message, err.response?.data);
         setError("Failed to load auctions.");
-        console.error("Auction fetch error:", err);
       } finally {
         setLoading(false);
       }

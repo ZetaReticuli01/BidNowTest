@@ -189,3 +189,20 @@ schedule.scheduleJob("*/1 * * * *", async () => {
     console.log(`Updated auction ${auction._id} to completed`);
   }
 });
+
+// Add schedule job to check for active auctions (run every minute)
+schedule.scheduleJob("*/1 * * * *", async () => {
+  console.log("Checking for active auctions...");
+  const now = new Date();
+  const auctions = await Auction.find({
+    status: "scheduled",
+    startTime: { $lte: now },
+    endTime: { $gt: now },
+  });
+
+  for (const auction of auctions) {
+    auction.status = "active";
+    await auction.save();
+    console.log(`Updated auction ${auction._id} to active`);
+  }
+});

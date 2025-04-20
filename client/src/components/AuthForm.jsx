@@ -75,8 +75,6 @@
 
 
 
-
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
@@ -118,27 +116,39 @@ const AuthForm = () => {
         console.log("Register response:", response.data); // Debug log
         alert("Signup successful! Please log in.");
         setIsNewUser(false);
+        localStorage.setItem("name", name); // Store name from signup
       } else {
         response = await axios.post("http://localhost:9000/api/auth/login", {
           email,
           password,
         });
-        console.log("Login response:", response.data); // Debug log
+        console.log("Login response (full):", response.data); // Detailed debug log
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role); // Set role from backend
         localStorage.setItem("userId", response.data.userId || response.data._id);
 
-        if (response.data.role === "bidder") {
-          navigate("/bidder-dashboard");
-        } else if (response.data.role === "seller") {
-          navigate("/seller-dashboard");
+        // Attempt to extract name from response, adjust based on backend structure
+        const userName = response.data.name || response.data.user?.name; // Try common structures
+        if (userName) {
+          localStorage.setItem("name", userName);
+          console.log("Name extracted from login response:", userName);
         } else {
-          navigate("/");
+          console.warn("No name found in login response, using default or signup name if exists");
+          const storedName = localStorage.getItem("name") || "User"; // Fallback to stored or default
+          localStorage.setItem("name", storedName);
         }
+      }
+
+      if (response.data.role === "bidder") {
+        navigate("/bidder-dashboard");
+      } else if (response.data.role === "seller") {
+        navigate("/seller-dashboard");
+      } else {
+        navigate("/");
       }
     } catch (err) {
       setError(err.response?.data?.error || "Authentication failed.");
-      console.error("Auth error:", err);
+      console.error("Auth error:", err.response?.data || err.message);
     }
   };
 
