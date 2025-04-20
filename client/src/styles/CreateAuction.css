@@ -1,0 +1,247 @@
+/* Overall page styling */
+.create-auction-container {
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  height: 100vh; /* Full viewport height, no more */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center;
+  padding: 12px; /* Minimal padding */
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden; /* Prevent any scrolling */
+  position: fixed; /* Lock in place */
+  top: 0;
+  left: 0;
+}
+
+/* Page title styling */
+.create-auction-container h2 {
+  text-align: center;
+  font-size: clamp(1.25rem, 3.5vw, 1.5rem); /* Smaller heading */
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #ffd700;
+  width: 100%;
+  max-width: 95%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Auction form styling */
+form {
+  background: #1a1a1a;
+  padding: 12px; /* Tighter padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: min(400px, 90vw); /* More compact form */
+  max-height: 80vh; /* Limit form height */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Minimal gap */
+  box-sizing: border-box;
+  overflow-y: auto; /* Scroll within form if needed */
+}
+
+/* Input fields */
+input,
+textarea {
+  width: 100%;
+  padding: 6px; /* Smaller inputs */
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background: #262626;
+  color: #ffffff;
+  font-size: clamp(0.8rem, 2vw, 0.85rem);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Input fields focus effect */
+input:focus,
+textarea:focus {
+  border-color: #ffd700;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+/* Textarea styling */
+textarea {
+  height: 60px; /* More compact */
+  resize: none;
+}
+
+/* File input styling */
+input[type="file"] {
+  width: 100%;
+  padding: 6px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background: #262626;
+  color: #ffffff;
+  font-size: clamp(0.8rem, 2vw, 0.85rem);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+input[type="file"]:focus {
+  border-color: #ffd700;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+/* Label styling for file inputs */
+label {
+  font-size: clamp(0.8rem, 2vw, 0.85rem);
+  color: #ffd700;
+  margin-bottom: 3px;
+  display: block;
+  font-weight: 500;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  margin-left: 4px;
+  accent-color: #ffd700;
+}
+
+/* Buttons container */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Create Auction Button */
+.create-btn {
+  background: linear-gradient(45deg, #ffd700, #ffaa00);
+  color: #0a0a0a;
+  font-size: clamp(0.85rem, 2vw, 0.9rem);
+  font-weight: 600;
+  padding: 6px;
+  width: 48%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.create-btn:hover {
+  background: linear-gradient(45deg, #ffaa00, #ffd700);
+  box-shadow: 0 0 4px rgba(255, 215, 0, 0.4);
+  transform: scale(1.02);
+}
+
+/* Cancel Button */
+.cancel-btn {
+  background: #555;
+  color: #ffffff;
+  font-size: clamp(0.85rem, 2vw, 0.9rem);
+  font-weight: 600;
+  padding: 6px;
+  width: 48%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: #777;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+/* File input hover effect */
+input[type="file"]:hover {
+  background: #333;
+  border-color: #ffd700;
+}
+
+/* Custom margin for div containers */
+div {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .create-auction-container {
+    padding: 10px;
+  }
+
+  .create-auction-container h2 {
+    font-size: 1.25rem;
+  }
+
+  form {
+    padding: 10px;
+    max-width: 92vw;
+    max-height: 85vh; /* Slightly more room */
+  }
+
+  input,
+  textarea,
+  input[type="file"] {
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+
+  .button-group {
+    flex-direction: row; /* Keep buttons side-by-side */
+    gap: 6px;
+  }
+
+  .create-btn,
+  .cancel-btn {
+    width: 48%;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-auction-container h2 {
+    font-size: 1.1rem;
+  }
+
+  form {
+    padding: 8px;
+    max-height: 90vh; /* Maximize form height */
+  }
+
+  input,
+  textarea,
+  input[type="file"] {
+    font-size: 0.75rem;
+    padding: 4px;
+  }
+
+  .create-btn,
+  .cancel-btn {
+    font-size: 0.8rem;
+    padding: 4px;
+  }
+
+  label {
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+  }
+
+  .button-group {
+    flex-direction: column; /* Stack buttons on very small screens */
+    gap: 4px;
+  }
+
+  .create-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+}

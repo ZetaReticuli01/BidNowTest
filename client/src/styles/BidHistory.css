@@ -1,0 +1,13 @@
+.bid-history {
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .bid-history-list {
+    margin-top: 20px;
+  }
+  
+  .bid-history-loading, .bid-history-error, .bid-history-no-bids {
+    text-align: center;
+    padding: 20px;
+  }

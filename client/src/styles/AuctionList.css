@@ -1,0 +1,60 @@
+.auction-list-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    height: auto; /* Allow natural height growth */
+    overflow-y: auto; /* Force vertical scrolling */
+    background-color: #1a1a1a; /* Match black theme */
+    min-height: 100vh; /* Fill viewport but allow overflow */
+  }
+  
+  .auction-section-title {
+    color: #d4af37;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  
+  .auction-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem; /* Ensure space at bottom */
+    width: 100%;
+    height: auto; /* Allow grid to expand */
+  }
+  
+  .auction-loading,
+  .auction-error,
+  .auction-no-auctions {
+    text-align: center;
+    color: #ccc;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .auction-list-container {
+      padding: 1rem;
+    }
+    .auction-section-title {
+      font-size: 1.4rem;
+    }
+    .auction-list {
+      grid-template-columns: 1fr; /* Stack cards on mobile */
+      gap: 1rem;
+    }
+  }
+  
+  /* Ensure global scrolling */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }

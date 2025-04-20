@@ -1,0 +1,30 @@
+.bid-history-item {
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #444;
+    padding: 1.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bid-history-item:hover {
+    background-color: #333;
+  }
+  
+  .bid-history-item p {
+    margin: 0.5rem 0;
+    color: #f5f5f0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .bid-history-item:last-child {
+    border-bottom: none;
+  }
+  
+  @media (max-width: 768px) {
+    .bid-history-item {
+      padding: 1rem;
+    }
+    .bid-history-item p {
+      font-size: 1rem;
+    }
+  }

@@ -1,0 +1,53 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import BidCard from "../components/BidCard";
+import "../styles/BidderAuctionList.css";
+
+const BidderAuctionList = () => {
+  const navigate = useNavigate();
+  const [auctions, setAuctions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchAuctions = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios.get("http://localhost:9000/api/auction", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const activeAuctions = response.data.filter(
+          (auction) => auction.status === "active" && new Date(auction.endTime) > new Date()
+        );
+        setAuctions(activeAuctions);
+      } catch (err) {
+        setError("Failed to load auctions.");
+        console.error("Auction fetch error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAuctions();
+    const interval = setInterval(fetchAuctions, 60000); // Refresh every minute
+    return () => clearInterval(interval);
+  }, []);
+
+  if (loading) return <p className="auction-loading">Loading auctions...</p>;
+  if (error) return <p className="auction-error">{error}</p>;
+  if (auctions.length === 0) return <p className="auction-no-auctions">No active auctions.</p>;
+
+  return (
+    <div className="bidder-auction-list">
+      <h2>Active Auctions</h2>
+      <div className="auction-grid">
+        {auctions.map((auction) => (
+          <BidCard key={auction._id} auction={auction} onClick={() => navigate(`/bidder-dashboard/auction/${auction._id}`)} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default BidderAuctionList;

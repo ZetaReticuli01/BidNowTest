@@ -1,0 +1,53 @@
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .auction-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .details-card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px #000, -4px -4px 10px #333;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .auction-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .desc {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #bbb;
+  }
+  
+  .price span, .current-price span {
+    font-weight: bold;
+    color: #ff9800;
+  }
+  
+  .seller span {
+    color: #4caf50;
+  }
+  
+  .end-time span {
+    color: #03a9f4;
+  }
+  
+  .loading, .error {
+    text-align: center;
+    font-size: 18px;
+    color: red;
+  }
+  
