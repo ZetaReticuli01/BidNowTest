@@ -1,64 +1,65 @@
 .bid-form {
-  background: #1c2526;
-  border: 1px solid #d4af37;
+  background: #2a3436;
   border-radius: 10px;
   padding: 20px;
-  margin-top: 15px;
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  max-width: 400px;
+  margin: 20px auto;
 }
 
 .bid-form form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
-.bid-form input {
+.bid-form input[type="number"] {
   padding: 10px;
-  font-size: 1em;
-  border: 1px solid #d4af37;
+  border: 2px solid #d4af37;
   border-radius: 5px;
-  background: #2a3436;
+  background: #1c2526;
   color: #fff;
-  outline: none;
+  font-size: 1em;
   transition: border-color 0.3s ease;
 }
 
-.bid-form input:focus {
+.bid-form input[type="number"]:focus {
   border-color: #f1c40f;
+  outline: none;
+  box-shadow: 0 0 10px #d4af37;
 }
 
 .bid-form button {
   padding: 10px;
-  font-size: 1.1em;
   background: #d4af37;
-  color: #1c2526;
   border: none;
   border-radius: 5px;
+  color: #1c2526;
+  font-size: 1.1em;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .bid-form button:hover {
   background: #f1c40f;
-  transform: translateY(-2px);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #d4af37;
 }
 
 .bid-form button:disabled {
-  background: #665d1e;
+  background: #666;
   cursor: not-allowed;
 }
 
 .bid-form-error {
   color: #ff4444;
-  font-size: 0.9em;
-  margin-top: 10px;
   text-align: center;
+  margin-top: 10px;
 }
 
 .bid-success {
   color: #00cc00;
-  font-size: 1.2em;
-  margin-left: 10px;
-  vertical-align: middle;
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 10px;
 }
