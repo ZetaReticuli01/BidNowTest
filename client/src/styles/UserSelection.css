@@ -1,218 +1,95 @@
-/* Global styles */
-body {
-    background: #121212; /* Dark background */
-    font-family: "Poppins", sans-serif;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden; /* Prevent scrolling */
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Main container */
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .user-selection {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%); /* Subtle gradient background */
-}
-
-/* Selection box */
-.selection-box {
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-    backdrop-filter: blur(12px); /* Stronger blur effect */
-    padding: 40px;
-    border-radius: 20px; /* Slightly larger radius */
-    box-shadow: 0 12px 24px rgba(255, 215, 0, 0.3); /* Softer gold shadow */
+    min-height: 100vh;
+    background: #1c2526;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .selection-box {
+    background: #2a3436;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
     text-align: center;
-    width: 500px; /* Increased width to accommodate spacing */
-    max-width: 90vw; /* Responsive max-width */
-    border: 1px solid rgba(255, 215, 0, 0.2); /* Gold-tinted border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect for selection box */
-.selection-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 32px rgba(255, 215, 0, 0.4);
-}
-
-/* Logo Styling */
-.logo {
-    font-size: 36px; /* Larger logo */
-    font-weight: 700;
-    color: #ffd700; /* Gold color */
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Glow effect */
-}
-
-/* Role selection heading */
-h2 {
-    font-size: 24px; /* Slightly larger */
-    margin-bottom: 25px;
-    font-weight: 600;
-    color: #fff; /* White for contrast */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Role options container */
-.role-options {
-    display: flex;
-    flex-direction: row; /* Horizontal layout */
-    justify-content: space-between; /* Perfectly spaced alignment */
-    align-items: center;
-    gap: 10px; /* Minimal gap between items */
-    margin-bottom: 30px;
-    padding: 0 15px; /* Inner padding for better spacing */
-}
-
-/* Role item container */
-.role-item {
-    flex: 1; /* Equal width for each item */
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Align checkpoint and role-name with gap */
-    width: 100%; /* Full width for alignment */
-}
-
-/* Radio button and label styling */
-label {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
     width: 100%;
-    justify-content: space-between; /* Distribute space within label */
-    transition: color 0.3s ease-in-out, transform 0.2s ease;
-}
-
-label:hover {
-    color: #ffd700; /* Gold on hover */
-    transform: translateX(5px); /* Slight shift on hover */
-}
-
-/* Checkpoint styling */
-.checkpoint {
-    font-size: 18px;
-    color: #ccc; /* Lighter gray for contrast */
-    font-weight: 500;
-    white-space: nowrap; /* Prevent wrapping */
-    margin-right: auto; /* Push role-name to the right */
-}
-
-/* Role name styling */
-.role-name {
-    font-size: 18px;
+    max-width: 400px;
+  }
+  
+  .logo {
+    color: #d4af37;
+    font-size: 2.5em;
+    text-shadow: 0 0 15px #d4af37;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .user-selection h2 {
     color: #fff;
-    font-weight: 600;
-    white-space: nowrap; /* Prevent wrapping */
-    margin-left: 50px; /* Wide gap between checkpoint and role */
-}
-
-/* Custom radio button */
-input[type="radio"] {
-    appearance: none;
-    width: 22px;
-    height: 22px;
-    border: 3px solid #ffd700; /* Gold border */
-    border-radius: 50%;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .role-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .role-item {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  
+  .role-item label {
+    color: #fff;
+    font-size: 1.2em;
     cursor: pointer;
-    transition: all 0.3s ease;
-    background: #121212; /* Match background */
-    outline: none;
-    margin: 0 10px; /* Space around radio button */
-}
-
-input[type="radio"]:checked {
-    background-color: #ffd700; /* Gold fill */
-    border-color: #fff; /* White border when checked */
-    box-shadow: 0 0 10px #ffd700; /* Brighter glow */
-}
-
-input[type="radio"]:focus {
-    outline: none;
-    box-shadow: 0 0 5px #ffd700;
-}
-
-/* Next button */
-.next-button {
-    background: linear-gradient(45deg, #ffd700, #ffaa00); /* Gold to orange gradient */
-    color: #121212; /* Dark text */
-    font-size: 20px;
-    padding: 14px;
-    width: 100%;
+  }
+  
+  .role-item input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .next-button {
+    padding: 12px 25px;
+    background: #d4af37;
     border: none;
-    border-radius: 10px; /* Larger radius */
+    border-radius: 5px;
+    color: #1c2526;
+    font-size: 1.1em;
     cursor: pointer;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-}
-
-.next-button:hover {
-    background: linear-gradient(45deg, #ffaa00, #ffd700); /* Reverse gradient on hover */
-    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
-    transform: scale(1.05); /* Slight scale up */
-}
-
-.next-button:active {
-    transform: scale(0.98); /* Slight press effect */
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
+    transition: background 0.3s ease, transform 0.3s ease;
+    width: 100%;
+  }
+  
+  .next-button:hover {
+    background: #f1c40f;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #d4af37;
+  }
+  
+  @media (max-width: 480px) {
     .selection-box {
-        padding: 25px;
-        width: 90vw;
+      padding: 15px;
     }
-
     .logo {
-        font-size: 28px;
+      font-size: 2em;
     }
-
-    h2 {
-        font-size: 20px;
+    .user-selection h2 {
+      font-size: 1.5em;
     }
-
-    .role-options {
-        flex-direction: column; /* Stack vertically on small screens */
-        gap: 20px;
+    .role-item label {
+      font-size: 1em;
     }
-
-    .role-item {
-        width: 100%;
-        flex-direction: column; /* Stack vertically on mobile */
-        align-items: flex-start; /* Align to left */
-    }
-
-    label {
-        font-size: 16px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px; /* Space between checkpoint and role */
-    }
-
-    .checkpoint {
-        margin-right: 0; /* Remove right margin on mobile */
-    }
-
-    .role-name {
-        margin-left: 0; /* Remove gap on mobile */
-    }
-
-    .next-button {
-        font-size: 18px;
-        padding: 12px;
-    }
-}
+  }

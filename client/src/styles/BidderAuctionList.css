@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 .bidder-auction-list {
   padding: 20px;
-  margin-left: 250px;
   background: #1c2526;
   min-height: calc(100vh - 40px);
   overflow-y: auto;
@@ -8,10 +13,10 @@
 
 .bidder-auction-list h2 {
   color: #d4af37;
-  font-size: 2em;
+  font-size: 2.5em;
+  text-shadow: 0 0 15px #d4af37;
   text-align: center;
   margin-bottom: 20px;
-  text-shadow: 0 0 15px #d4af37;
 }
 
 .auction-grid {
@@ -22,7 +27,7 @@
   max-width: 1200px;
   margin: 0 auto;
   overflow-y: auto;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 100px);
 }
 
 .auction-loading,
@@ -35,4 +40,19 @@
 
 .auction-error {
   color: #ff4444;
+}
+
+@media (max-width: 768px) {
+  .auction-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .bidder-auction-list h2 {
+    font-size: 2em;
+  }
+  .auction-grid {
+    grid-template-columns: 1fr;
+  }
 }

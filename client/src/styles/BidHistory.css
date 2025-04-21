@@ -1,18 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .bid-history {
   padding: 20px;
-  margin-left: 250px;
   background: #1c2526;
   min-height: calc(100vh - 40px);
   overflow-y: auto;
-  max-height: calc(100vh - 80px);
 }
 
 .bid-history h2 {
   color: #d4af37;
-  font-size: 2em;
+  font-size: 2.5em;
+  text-shadow: 0 0 15px #d4af37;
   text-align: center;
   margin-bottom: 20px;
-  text-shadow: 0 0 15px #d4af37;
 }
 
 .filter-section {
@@ -71,4 +74,26 @@
 
 .bid-history-error {
   color: #ff4444;
+}
+
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .bid-history-list {
+    max-height: calc(100vh - 200px);
+  }
+}
+
+@media (max-width: 480px) {
+  .bid-history h2 {
+    font-size: 2em;
+  }
+  .filter-section label {
+    font-size: 0.9em;
+  }
+  .bid-history-list {
+    max-height: calc(100vh - 150px);
+  }
 }

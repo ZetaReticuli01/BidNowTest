@@ -1,247 +1,129 @@
-/* Overall page styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .create-auction-container {
-  background: #0a0a0a;
-  color: #ffffff;
-  font-family: "Inter", sans-serif;
-  height: 100vh; /* Full viewport height, no more */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center;
-  padding: 12px; /* Minimal padding */
-  box-sizing: border-box;
-  width: 100%;
-  overflow: hidden; /* Prevent any scrolling */
-  position: fixed; /* Lock in place */
-  top: 0;
-  left: 0;
+  min-height: 100vh;
+  background: #1c2526;
+  padding: 20px;
+  overflow-y: auto;
 }
 
-/* Page title styling */
 .create-auction-container h2 {
+  color: #d4af37;
+  font-size: 2.5em;
+  text-shadow: 0 0 15px #d4af37;
   text-align: center;
-  font-size: clamp(1.25rem, 3.5vw, 1.5rem); /* Smaller heading */
-  font-weight: 700;
-  margin: 0 0 12px;
-  color: #ffd700;
-  width: 100%;
-  max-width: 95%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  margin-bottom: 20px;
 }
 
-/* Auction form styling */
-form {
-  background: #1a1a1a;
-  padding: 12px; /* Tighter padding */
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.create-auction-container form {
+  background: #2a3436;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  max-width: 600px;
+  margin: 0 auto;
   width: 100%;
-  max-width: min(400px, 90vw); /* More compact form */
-  max-height: 80vh; /* Limit form height */
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Minimal gap */
-  box-sizing: border-box;
-  overflow-y: auto; /* Scroll within form if needed */
+  gap: 15px;
 }
 
-/* Input fields */
-input,
-textarea {
+.create-auction-container input,
+.create-auction-container textarea,
+.create-auction-container select {
+  padding: 12px;
+  border: 2px solid #d4af37;
+  border-radius: 5px;
+  background: #1c2526;
+  color: #fff;
+  font-size: 1em;
   width: 100%;
-  padding: 6px; /* Smaller inputs */
-  margin: 0;
-  border-radius: 4px;
-  border: 1px solid #555;
-  background: #262626;
-  color: #ffffff;
-  font-size: clamp(0.8rem, 2vw, 0.85rem);
-  transition: all 0.2s ease;
-  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Input fields focus effect */
-input:focus,
-textarea:focus {
-  border-color: #ffd700;
+.create-auction-container input:focus,
+.create-auction-container textarea:focus {
+  border-color: #f1c40f;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+  box-shadow: 0 0 10px #d4af37;
 }
 
-/* Textarea styling */
-textarea {
-  height: 60px; /* More compact */
-  resize: none;
+.create-auction-container input[type="checkbox"] {
+  margin-right: 10px;
 }
 
-/* File input styling */
-input[type="file"] {
-  width: 100%;
-  padding: 6px;
-  margin: 0;
-  border-radius: 4px;
-  border: 1px solid #555;
-  background: #262626;
-  color: #ffffff;
-  font-size: clamp(0.8rem, 2vw, 0.85rem);
-  transition: all 0.2s ease;
-  box-sizing: border-box;
-}
-
-input[type="file"]:focus {
-  border-color: #ffd700;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
-}
-
-/* Label styling for file inputs */
-label {
-  font-size: clamp(0.8rem, 2vw, 0.85rem);
-  color: #ffd700;
-  margin-bottom: 3px;
+.create-auction-container label {
+  color: #fff;
+  font-size: 1em;
+  margin-bottom: 5px;
   display: block;
-  font-weight: 500;
 }
 
-/* Checkbox styling */
-input[type="checkbox"] {
-  margin-left: 4px;
-  accent-color: #ffd700;
-}
-
-/* Buttons container */
-.button-group {
+.create-auction-container .button-group {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 8px;
-  margin-top: 8px;
+  gap: 10px;
+  justify-content: center;
 }
 
-/* Create Auction Button */
-.create-btn {
-  background: linear-gradient(45deg, #ffd700, #ffaa00);
-  color: #0a0a0a;
-  font-size: clamp(0.85rem, 2vw, 0.9rem);
-  font-weight: 600;
-  padding: 6px;
-  width: 48%;
+.create-auction-container button {
+  padding: 12px;
+  background: #d4af37;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  color: #1c2526;
+  font-size: 1.1em;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.create-btn:hover {
-  background: linear-gradient(45deg, #ffaa00, #ffd700);
-  box-shadow: 0 0 4px rgba(255, 215, 0, 0.4);
-  transform: scale(1.02);
-}
-
-/* Cancel Button */
-.cancel-btn {
-  background: #555;
-  color: #ffffff;
-  font-size: clamp(0.85rem, 2vw, 0.9rem);
-  font-weight: 600;
-  padding: 6px;
+  transition: background 0.3s ease, transform 0.3s ease;
   width: 48%;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-.cancel-btn:hover {
-  background: #777;
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-  transform: scale(1.02);
+.create-auction-container button:hover {
+  background: #f1c40f;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #d4af37;
 }
 
-/* File input hover effect */
-input[type="file"]:hover {
-  background: #333;
-  border-color: #ffd700;
+.create-auction-container button:disabled {
+  background: #666;
+  cursor: not-allowed;
 }
 
-/* Custom margin for div containers */
-div {
-  width: 100%;
-  margin-bottom: 0;
+.create-auction-container .cancel-btn {
+  background: #444;
 }
 
-/* Media Queries for Responsiveness */
+.create-auction-container .cancel-btn:hover {
+  background: #666;
+}
+
+.error-message {
+  color: #ff4444;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
-  .create-auction-container {
-    padding: 10px;
+  .create-auction-container form {
+    padding: 15px;
   }
-
   .create-auction-container h2 {
-    font-size: 1.25rem;
+    font-size: 2em;
   }
-
-  form {
+  .create-auction-container input,
+  .create-auction-container textarea {
     padding: 10px;
-    max-width: 92vw;
-    max-height: 85vh; /* Slightly more room */
-  }
-
-  input,
-  textarea,
-  input[type="file"] {
-    font-size: 0.8rem;
-    padding: 5px;
-  }
-
-  .button-group {
-    flex-direction: row; /* Keep buttons side-by-side */
-    gap: 6px;
-  }
-
-  .create-btn,
-  .cancel-btn {
-    width: 48%;
-    padding: 5px;
   }
 }
 
 @media (max-width: 480px) {
-  .create-auction-container h2 {
-    font-size: 1.1rem;
+  .create-auction-container .button-group {
+    flex-direction: column;
   }
-
-  form {
-    padding: 8px;
-    max-height: 90vh; /* Maximize form height */
-  }
-
-  input,
-  textarea,
-  input[type="file"] {
-    font-size: 0.75rem;
-    padding: 4px;
-  }
-
-  .create-btn,
-  .cancel-btn {
-    font-size: 0.8rem;
-    padding: 4px;
-  }
-
-  label {
-    font-size: 0.75rem;
-    margin-bottom: 2px;
-  }
-
-  .button-group {
-    flex-direction: column; /* Stack buttons on very small screens */
-    gap: 4px;
-  }
-
-  .create-btn,
-  .cancel-btn {
+  .create-auction-container button {
     width: 100%;
+    margin-bottom: 10px;
   }
 }

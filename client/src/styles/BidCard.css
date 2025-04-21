@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 .bid-card {
   background: #2a3436;
   border-radius: 10px;
   padding: 15px;
   margin: 10px;
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -21,18 +28,19 @@
   object-fit: cover;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  margin-bottom: 10px;
 }
 
 .bid-card-title {
   color: #d4af37;
   font-size: 1.3em;
   text-shadow: 0 0 10px #d4af37;
-  margin: 10px 0;
+  margin-bottom: 10px;
   text-align: center;
+  word-wrap: break-word;
 }
 
-.bid-card-price,
-.bid-card-end-time {
+.bid-card-price, .bid-card-end-time {
   color: #fff;
   font-size: 1em;
   margin: 5px 0;
@@ -43,4 +51,26 @@
   color: #d4af37;
   font-weight: bold;
   text-shadow: 0 0 5px #d4af37;
+}
+
+@media (max-width: 768px) {
+  .bid-card {
+    max-width: 200px;
+  }
+  .bid-card-image {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bid-card {
+    max-width: 100%;
+    margin: 5px;
+  }
+  .bid-card-image {
+    height: 100px;
+  }
+  .bid-card-title {
+    font-size: 1.1em;
+  }
 }

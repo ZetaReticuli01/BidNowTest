@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #1c2526;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .auth-container h2 {
+    color: #d4af37;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px #d4af37;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #2a3436;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .auth-container input {
+    padding: 12px;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    background: #1c2526;
+    color: #fff;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .auth-container input:focus {
+    border-color: #f1c40f;
+    outline: none;
+    box-shadow: 0 0 10px #d4af37;
+  }
+  
+  .auth-container button {
+    padding: 12px;
+    background: #d4af37;
+    border: none;
+    border-radius: 5px;
+    color: #1c2526;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .auth-container button:hover {
+    background: #f1c40f;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #d4af37;
+  }
+  
+  .error-message {
+    color: #ff4444;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    .auth-container form {
+      padding: 15px;
+      max-width: 90%;
+    }
+    .auth-container h2 {
+      font-size: 2em;
+    }
+  }

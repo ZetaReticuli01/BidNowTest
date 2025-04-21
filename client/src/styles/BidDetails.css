@@ -1,19 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .bid-details {
-  background: #2a3436;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: #1c2526;
   padding: 20px;
-  margin: 20px 0;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
   overflow-y: auto;
-  max-height: calc(100vh - 100px);
 }
 
 .bid-details h2 {
   color: #d4af37;
-  font-size: 2em;
+  font-size: 2.5em;
   text-shadow: 0 0 15px #d4af37;
   text-align: center;
   margin-bottom: 20px;
@@ -24,19 +26,17 @@
   height: auto;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-  display: block;
-  margin: 0 auto 20px;
+  margin-bottom: 20px;
 }
 
 .bid-details p {
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin: 10px 0;
   text-align: center;
 }
 
-.bid-details-loading,
-.bid-details-error {
+.bid-details-loading, .bid-details-error {
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -44,4 +44,22 @@
 
 .bid-details-error {
   color: #ff4444;
+}
+
+@media (max-width: 768px) {
+  .bid-details h2 {
+    font-size: 2em;
+  }
+  .bid-details p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .bid-details {
+    padding: 10px;
+  }
+  .bid-details h2 {
+    font-size: 1.5em;
+  }
 }

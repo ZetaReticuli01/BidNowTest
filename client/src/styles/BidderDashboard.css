@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 .bidder-dashboard {
   display: flex;
   min-height: 100vh;
@@ -140,4 +146,47 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .bidder-nav {
+    width: 200px;
+  }
+  .bidder-content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+  .bidder-nav h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .bidder-nav {
+    width: 150px;
+    transform: translateX(-100%);
+  }
+  .bidder-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  .auction-detail {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bidder-nav h2 {
+    font-size: 1.2em;
+  }
+  .bidder-nav ul li a {
+    font-size: 1em;
+  }
+  .auction-header h2 {
+    font-size: 1.5em;
+  }
+  .auction-info p {
+    font-size: 1em;
+  }
 }

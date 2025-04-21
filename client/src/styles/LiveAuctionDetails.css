@@ -1,437 +1,194 @@
-/* 🔹 CSS Variables for Consistency */
-:root {
-    --primary-bg: #0f0f0f; /* Main background */
-    --card-bg: #1a1a1a; /* Card background */
-    --accent-gold: #d4af37; /* Gold accent color */
-    --text-primary: #ffffff; /* Primary text color */
-    --text-secondary: #b0b0b0; /* Secondary text color */
-    --highlight-red: #ff5555; /* Red for urgency (timer, live indicator) */
-    --gradient-bg: linear-gradient(135deg, #1a1a1a, #2b2b2b); /* Gradient for headers */
-    --shadow: 0 8px 30px rgba(212, 175, 55, 0.1); /* Card shadow */
-    --border-radius: 12px; /* Consistent border radius */
-    --spacing-sm: 8px; /* Small spacing */
-    --spacing-md: 15px; /* Medium spacing */
-    --spacing-lg: 20px; /* Large spacing */
-    --font-family: "Inter", sans-serif; /* Modern font */
-  }
-  
-  /* 🔹 Reset and Base Styles */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background: var(--primary-bg);
-    color: var(--text-primary);
-    font-family: var(--font-family);
-    line-height: 1.6;
-  }
-  
-  /* 🔹 Main Container */
-  .live-auction-container {
-    max-width: 100%;
-    width: 100%;
-    margin: 0 auto;
-    padding: var(--spacing-md);
-    background: var(--primary-bg);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
-  
-  /* 🔹 Auction Header with Glassmorphism */
-  .auction-header {
-    text-align: center;
-    padding: var(--spacing-lg);
-    background: var(--gradient-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .auction-header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .auction-header .desc {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    max-width: 90%;
-    margin: 0 auto;
-    opacity: 0.9;
-  }
-  
-  /* 🔹 Main Content Layout */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+.live-auction-container {
+  min-height: 100vh;
+  background: #1c2526;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.auction-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auction-header h1 {
+  color: #d4af37;
+  font-size: 2.5em;
+  text-shadow: 0 0 15px #d4af37;
+}
+
+.auction-header .desc {
+  color: #fff;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.auction-main {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.auction-details-card {
+  background: #2a3436;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  width: 100%;
+  max-width: 400px;
+}
+
+.current-price h2 {
+  color: #d4af37;
+  font-size: 1.5em;
+  text-shadow: 0 0 10px #d4af37;
+  margin-bottom: 10px;
+}
+
+.current-price .price {
+  color: #fff;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-shadow: 0 0 5px #d4af37;
+}
+
+.detail-row {
+  color: #fff;
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.detail-row strong {
+  color: #d4af37;
+  text-shadow: 0 0 5px #d4af37;
+}
+
+.timer {
+  color: #d4af37;
+  font-weight: bold;
+  text-shadow: 0 0 5px #d4af37;
+}
+
+.bids-container {
+  background: #2a3436;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  width: 100%;
+  max-width: 700px;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+}
+
+.bids-container h3 {
+  color: #d4af37;
+  font-size: 1.5em;
+  text-shadow: 0 0 10px #d4af37;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.live-indicator {
+  width: 10px;
+  height: 10px;
+  background: #00cc00;
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+.bids-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bid-item {
+  background: #1c2526;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.bid-item.new-bid {
+  animation: highlight 2s ease-out;
+}
+
+.bidder-name, .bid-amount, .bid-time {
+  font-size: 1em;
+  margin: 0 5px;
+}
+
+.no-bids {
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.loading, .error {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.error {
+  color: #ff4444;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes highlight {
+  0% { background: #d4af37; }
+  100% { background: #1c2526; }
+}
+
+@media (max-width: 1024px) {
   .auction-main {
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-lg);
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: column;
   }
-  
-  /* 🔹 Auction Details Card with Glassmorphism */
-  .auction-details-card {
-    background: var(--card-bg);
-    border: 1px solid var(--accent-gold);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-lg);
-    width: 100%;
-    max-width: 350px;
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(5px); /* Subtle glassmorphism */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .auction-details-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
-  }
-  
-  /* 🔹 Current Price Section with Gradient Highlight */
-  .current-price {
-    text-align: center;
-    margin-bottom: var(--spacing-md);
-    padding: var(--spacing-md);
-    background: linear-gradient(45deg, #2b2b2b, #3a3a3a);
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-  }
-  
-  .current-price h2 {
-    font-size: 1.1rem;
-    color: var(--accent-gold);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 500;
-  }
-  
-  .current-price .price {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    background: linear-gradient(90deg, var(--accent-gold), var(--text-primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  /* 🔹 Detail Rows */
-  .detail-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1rem;
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  }
-  
-  .detail-row strong {
-    color: var(--accent-gold);
-    font-weight: 500;
-  }
-  
-  .detail-row span {
-    color: var(--text-primary);
-  }
-  
-  .detail-row .timer {
-    color: var(--highlight-red);
-    font-weight: 600;
-    animation: blink 2s infinite; /* Subtle blink for urgency */
-  }
-  
-  /* 🔹 Timer Blink Animation */
-  @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.7;
-    }
-  }
-  
-  /* 🔹 Live Bidding Activity Card */
   .bids-container {
-    background: var(--card-bg);
-    border: 1px solid var(--accent-gold);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-lg);
-    width: 100%;
-    max-width: 350px;
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(5px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%;
   }
-  
-  .bids-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+}
+
+@media (max-width: 768px) {
+  .auction-header h1 {
+    font-size: 2em;
   }
-  
-  .bids-container h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
+  .auction-details-card {
+    padding: 15px;
   }
-  
-  .bids-container .live-indicator {
-    width: 10px;
-    height: 10px;
-    background: var(--highlight-red);
-    border-radius: 50%;
-    animation: pulse 1.5s infinite;
+  .current-price .price {
+    font-size: 1.5em;
   }
-  
-  /* 🔹 Pulse Animation for Live Indicator */
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(255, 85, 85, 0.7);
-    }
-    70% {
-      box-shadow: 0 0 0 8px rgba(255, 85, 85, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(255, 85, 85, 0);
-    }
+}
+
+@media (max-width: 480px) {
+  .auction-header h1 {
+    font-size: 1.5em;
   }
-  
-  /* 🔹 Bid List */
-  .bids-list {
-    list-style: none;
-    padding: 0;
-    max-height: 250px;
-    overflow-y: auto;
+  .auction-details-card {
+    padding: 10px;
   }
-  
-  /* 🔹 Bid Item with Hover Effect */
+  .bids-container {
+    padding: 10px;
+  }
   .bid-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    font-size: 0.9rem;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  
-  .bid-item:hover {
-    background: rgba(212, 175, 55, 0.05);
-    transform: translateX(5px);
-  }
-  
-  .bid-item.new-bid {
-    background: rgba(212, 175, 55, 0.1);
-    animation: fadeIn 0.5s ease;
-  }
-  
-  /* 🔹 Fade-in Animation for New Bids */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .bidder-name {
-    flex: 1;
-    color: var(--accent-gold);
-    font-weight: 500;
-  }
-  
-  .bid-amount {
-    flex: 1;
-    color: var(--text-primary);
+    flex-direction: column;
     text-align: center;
-    font-weight: 600;
   }
-  
-  .bid-time {
-    flex: 1;
-    color: var(--text-secondary);
-    text-align: right;
-    font-size: 0.8rem;
-  }
-  
-  /* 🔹 No Bids Message */
-  .no-bids {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    text-align: center;
-    padding: var(--spacing-md) 0;
-    opacity: 0.8;
-  }
-  
-  /* 🔹 Scrollbar Styling */
-  .bids-list::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  .bids-list::-webkit-scrollbar-thumb {
-    background: var(--accent-gold);
-    border-radius: 3px;
-  }
-  
-  .bids-list::-webkit-scrollbar-track {
-    background: #2b2b2b;
-  }
-  
-  /* 🔹 Loading and Error States */
-  .loading,
-  .error {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    padding: var(--spacing-md);
-    opacity: 0.8;
-  }
-  
-  /* 🔹 Responsive Design */
-  @media (max-width: 1024px) {
-    .live-auction-container {
-      padding: var(--spacing-sm);
-    }
-  
-    .auction-header h1 {
-      font-size: 1.8rem;
-    }
-  
-    .auction-header .desc {
-      font-size: 0.9rem;
-    }
-  
-    .auction-main {
-      flex-direction: column;
-      gap: var(--spacing-md);
-    }
-  
-    .auction-details-card,
-    .bids-container {
-      max-width: 100%;
-    }
-  
-    .current-price .price {
-      font-size: 1.8rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .live-auction-container {
-      padding: var(--spacing-sm);
-    }
-  
-    .auction-header h1 {
-      font-size: 1.5rem;
-    }
-  
-    .auction-header .desc {
-      font-size: 0.85rem;
-    }
-  
-    .auction-details-card,
-    .bids-container {
-      padding: var(--spacing-md);
-    }
-  
-    .current-price .price {
-      font-size: 1.5rem;
-    }
-  
-    .detail-row {
-      font-size: 0.9rem;
-    }
-  
-    .bids-container h3 {
-      font-size: 1.2rem;
-    }
-  
-    .bid-item {
-      flex-direction: column;
-      gap: 5px;
-      text-align: center;
-    }
-  
-    .bidder-name,
-    .bid-amount,
-    .bid-time {
-      text-align: center;
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .live-auction-container {
-      padding: 5px;
-    }
-  
-    .auction-header h1 {
-      font-size: 1.3rem;
-    }
-  
-    .auction-header .desc {
-      font-size: 0.8rem;
-    }
-  
-    .auction-details-card,
-    .bids-container {
-      padding: var(--spacing-sm);
-    }
-  
-    .current-price .price {
-      font-size: 1.3rem;
-    }
-  
-    .detail-row {
-      font-size: 0.85rem;
-    }
-  
-    .bids-container h3 {
-      font-size: 1.1rem;
-    }
-  
-    .bid-item {
-      font-size: 0.8rem;
-    }
-  }
-  
-  /* 🔹 Accessibility Improvements */
-  @media (prefers-reduced-motion: reduce) {
-    .auction-details-card:hover,
-    .bids-container:hover,
-    .bid-item,
-    .live-indicator,
-    .timer {
-      animation: none;
-      transition: none;
-    }
-  }
-  
-  /* 🔹 High Contrast Mode */
-  @media (prefers-contrast: high) {
-    :root {
-      --text-primary: #ffffff;
-      --text-secondary: #e0e0e0;
-      --accent-gold: #ffd700;
-      --highlight-red: #ff3333;
-    }
-  
-    .auction-details-card,
-    .bids-container {
-      border: 2px solid var(--accent-gold);
-    }
-  }
+}

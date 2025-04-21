@@ -1,60 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 .auction-list-container {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    height: auto; /* Allow natural height growth */
-    overflow-y: auto; /* Force vertical scrolling */
-    background-color: #1a1a1a; /* Match black theme */
-    min-height: 100vh; /* Fill viewport but allow overflow */
+  min-height: 100vh;
+  background: #1c2526;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.auction-section-title {
+  color: #d4af37;
+  font-size: 2.5em;
+  text-shadow: 0 0 15px #d4af37;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auctions-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}
+
+.auction-card {
+  background: #2a3436;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.auction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.auction-card h3 {
+  color: #d4af37;
+  font-size: 1.3em;
+  text-shadow: 0 0 10px #d4af37;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.price, .seller, .time-left {
+  color: #fff;
+  font-size: 1em;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.price span, .time-left {
+  color: #d4af37;
+  font-weight: bold;
+  text-shadow: 0 0 5px #d4af37;
+}
+
+.details-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #d4af37;
+  border: none;
+  border-radius: 5px;
+  color: #1c2526;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+}
+
+.details-button:hover {
+  background: #f1c40f;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #d4af37;
+}
+
+.skeleton {
+  background: #333;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-title, .skeleton-text, .skeleton-button {
+  background: #444;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 80%;
+  margin: 0 auto 10px;
+}
+
+.skeleton-text {
+  height: 15px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.skeleton-button {
+  height: 40px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.auction-loading, .auction-error, .auction-no-auctions {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.auction-error {
+  color: #ff4444;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+  .auctions-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  
+}
+
+@media (max-width: 480px) {
+  .auctions-container {
+    grid-template-columns: 1fr;
+  }
+  .auction-card {
+    padding: 10px;
+  }
   .auction-section-title {
-    color: #d4af37;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
+    font-size: 2em;
   }
-  
-  .auction-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
-    padding-bottom: 2rem; /* Ensure space at bottom */
-    width: 100%;
-    height: auto; /* Allow grid to expand */
-  }
-  
-  .auction-loading,
-  .auction-error,
-  .auction-no-auctions {
-    text-align: center;
-    color: #ccc;
-    padding: 1.5rem;
-    font-size: 1.2rem;
-  }
-  
-  @media (max-width: 768px) {
-    .auction-list-container {
-      padding: 1rem;
-    }
-    .auction-section-title {
-      font-size: 1.4rem;
-    }
-    .auction-list {
-      grid-template-columns: 1fr; /* Stack cards on mobile */
-      gap: 1rem;
-    }
-  }
-  
-  /* Ensure global scrolling */
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal overflow */
-    overflow-y: auto; /* Allow vertical scrolling */
-  }
+}

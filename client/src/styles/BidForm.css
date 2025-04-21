@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .bid-form {
   background: #2a3436;
   border-radius: 10px;
@@ -5,6 +10,7 @@
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
   max-width: 400px;
   margin: 20px auto;
+  width: 100%;
 }
 
 .bid-form form {
@@ -14,7 +20,7 @@
 }
 
 .bid-form input[type="number"] {
-  padding: 10px;
+  padding: 12px;
   border: 2px solid #d4af37;
   border-radius: 5px;
   background: #1c2526;
@@ -30,7 +36,7 @@
 }
 
 .bid-form button {
-  padding: 10px;
+  padding: 12px;
   background: #d4af37;
   border: none;
   border-radius: 5px;
@@ -62,4 +68,18 @@
   text-align: center;
   font-size: 1.5em;
   margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .bid-form {
+    padding: 15px;
+    margin: 10px auto;
+  }
+  .bid-form input[type="number"] {
+    padding: 10px;
+  }
+  .bid-form button {
+    padding: 10px;
+    font-size: 1em;
+  }
 }

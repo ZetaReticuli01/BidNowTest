@@ -1,68 +1,95 @@
-/* Scoped styles for CompletedAuctions */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .completed-auctions-container {
+    min-height: 100vh;
+    background: #1c2526;
     padding: 20px;
-    max-width: 900px;
-    margin: auto;
+    overflow-y: auto;
+  }
+  
+  .completed-section-title {
+    color: #d4af37;
+    font-size: 2.5em;
+    text-shadow: 0 0 15px #d4af37;
     text-align: center;
-    color: #fff;
-}
-
-.completed-section-title {
-    font-size: 24px;
-    font-weight: bold;
     margin-bottom: 20px;
-}
-
-.completed-loading,
-.completed-error,
-.completed-no-auctions {
-    font-size: 18px;
-    color: #ffcc00;
-}
-
-.completed-auction-list {
+  }
+  
+  .completed-auction-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    justify-content: center;
-}
-
-.completed-auction-card {
-    background: #1e1e1e;
-    padding: 20px;
+    padding: 0 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+  }
+  
+  .completed-auction-card {
+    background: #2a3436;
     border-radius: 10px;
-    box-shadow: 3px 3px 10px #000, -3px -3px 10px #333;
-    text-align: left;
-    transition: 0.3s ease-in-out;
-}
-
-.completed-auction-card:hover {
-    box-shadow: 0 0 15px #ffcc00;
-    transform: scale(1.05);
-}
-
-.completed-auction-card h3 {
-    font-size: 20px;
-    color: #ffcc00;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .completed-auction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  }
+  
+  .completed-auction-card h3 {
+    color: #d4af37;
+    font-size: 1.3em;
+    text-shadow: 0 0 10px #d4af37;
     margin-bottom: 10px;
-}
-
-.completed-auction-card .completed-desc {
-    font-size: 16px;
-    color: #bbb;
-    margin-bottom: 8px;
-}
-
-.completed-auction-card .completed-price span {
-    font-size: 18px;
-    color: #ff5722;
+    text-align: center;
+  }
+  
+  .completed-desc, .completed-price, .completed-bidder, .completed-end-time {
+    color: #fff;
+    font-size: 1em;
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  .completed-price span, .completed-bidder {
+    color: #d4af37;
     font-weight: bold;
-}
-
-.completed-auction-card .completed-bidder {
-    color: #4caf50; /* Green for bidder info */
-}
-
-.completed-auction-card .completed-end-time {
-    color: #03a9f4;
-}
+    text-shadow: 0 0 5px #d4af37;
+  }
+  
+  .completed-loading,
+  .completed-error,
+  .completed-no-auctions {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .completed-error {
+    color: #ff4444;
+  }
+  
+  @media (max-width: 768px) {
+    .completed-auction-list {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .completed-section-title {
+      font-size: 2em;
+    }
+    .completed-auction-list {
+      grid-template-columns: 1fr;
+    }
+    .completed-auction-card {
+      padding: 10px;
+    }
+  }

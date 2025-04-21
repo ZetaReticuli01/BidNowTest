@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .bid-history-item {
   background: #2a3436;
   border-radius: 10px;
@@ -32,4 +37,13 @@
 .lost {
   color: #ff4444;
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .bid-history-item {
+    padding: 10px;
+  }
+  .bid-history-item p {
+    font-size: 0.9em;
+  }
 }
