@@ -127,15 +127,37 @@ exports.getSellerAuctions = async (req, res) => {
   }
 };
 
+// exports.getAuctionById = async (req, res) => {
+//   try {
+//     const auction = await Auction.findById(req.params.id);
+//     if (!auction) {
+//       return res.status(404).json({ error: "Auction not found" });
+//     }
+//     res.status(200).json(auction);
+//   } catch (err) {
+//     res.status(500).json({ error: "Server error", details: err.message });
+//   }
+// };
+
+
 exports.getAuctionById = async (req, res) => {
   try {
-    const auction = await Auction.findById(req.params.id);
+    const auction = await Auction.findById(req.params.id)
+      .populate("seller", "name email")
+      .populate("highestBidder", "name email");
     if (!auction) {
+      console.error("Auction not found for ID:", req.params.id);
       return res.status(404).json({ error: "Auction not found" });
     }
+    console.log("Auction data sent:", {
+      id: auction._id,
+      seller: auction.seller,
+      highestBidder: auction.highestBidder,
+    });
     res.status(200).json(auction);
   } catch (err) {
-    res.status(500).json({ error: "Server error", details: err.message });
+    console.error("Error in getAuctionById:", err.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 

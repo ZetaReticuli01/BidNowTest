@@ -1,14 +1,18 @@
 import React from "react";
 import "../styles/BidHistoryItem.css";
 
-const BidHistoryItem = ({ bid }) => {
+const BidHistoryItem = ({ bid, onContactSeller }) => {
   return (
     <div className="bid-history-item">
-      <p><strong>Auction:</strong> {bid.auction.title} (ID: {bid.auction._id})</p>
-      <p><strong>Amount:</strong> ${bid.amount}</p>
-      <p><strong>Time:</strong> {new Date(bid.bidTime).toLocaleString()}</p>
-      <p><strong>Status:</strong> {bid.auctionStatus}</p>
-      <p><strong>Outcome:</strong> <span className={bid.outcome === "Won" ? "won" : bid.outcome === "Outbid" ? "lost" : ""}>{bid.outcome}</span></p>
+      <h3>{bid.auction?.title || "Unknown Auction"}</h3>
+      <p>Bid Amount: <span>${bid.amount}</span></p>
+      <p>Status: <span>{bid.outcome}</span></p>
+      <p>Bid Time: {new Date(bid.bidTime).toLocaleString()}</p>
+      {bid.outcome === "Won" && (
+        <button className="contact-seller-button" onClick={onContactSeller}>
+          Contact Seller
+        </button>
+      )}
     </div>
   );
 };

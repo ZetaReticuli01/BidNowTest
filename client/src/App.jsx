@@ -173,6 +173,7 @@ import BidDetails from "./pages/BidDetails"; // Keep this if it's a separate pag
 import BidHistory from "./pages/BidHistory";
 import AuctionList from "./auctions/AuctionList";
 import AuctionDetails from "./auctions/AuctionDetails";
+import Chat from "./pages/Chat"
 
 // Custom authentication guard
 const RequireAuth = ({ children, role }) => {
@@ -247,6 +248,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/chat/:auctionId/:recipientId" element={<Chat />} />
         <Route
           path="/seller-dashboard/live-auction/:auctionId"
           element={

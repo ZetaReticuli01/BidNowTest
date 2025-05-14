@@ -23,6 +23,14 @@ const CompletedAuctions = () => {
     }
   };
 
+  const handleContactBidder = (auctionId, highestBidderId) => {
+    if (!highestBidderId) {
+      alert("No highest bidder for this auction.");
+      return;
+    }
+    navigate(`/chat/${auctionId}/${highestBidderId}`);
+  };
+
   useEffect(() => {
     fetchCompletedAuctions();
     const interval = setInterval(fetchCompletedAuctions, 60000); // Refresh every minute
@@ -44,6 +52,14 @@ const CompletedAuctions = () => {
             <p className="completed-price">Final Price: <span>${auction.currentPrice}</span></p>
             <p className="completed-bidder">Highest Bidder: {auction.highestBidder?.name || "No bids"}</p>
             <p className="completed-end-time">Ended: {new Date(auction.endTime).toLocaleString()}</p>
+            {auction.highestBidder && (
+              <button
+                className="contact-bidder-button"
+                onClick={() => handleContactBidder(auction._id, auction.highestBidder._id)}
+              >
+                Contact Highest Bidder
+              </button>
+            )}
           </div>
         ))}
       </div>

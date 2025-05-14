@@ -1,49 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-* {
-  font-family: 'Poppins', sans-serif;
-}
 .bid-history-item {
-  background: #2a3436;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 10px;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #2E2E2E;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .bid-history-item:hover {
-  transform: translateX(5px);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+
+.bid-history-item h3 {
+  margin: 0 0 0.5rem;
+  color: #FFD700;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 0 4px rgba(255, 215, 0, 0.5);
 }
 
 .bid-history-item p {
-  color: #fff;
-  font-size: 1em;
-  margin: 5px 0;
-  text-align: left;
+  margin: 0.3rem 0;
+  color: #FFFFFF;
 }
 
-.bid-history-item p strong {
-  color: #d4af37;
-  text-shadow: 0 0 5px #d4af37;
-}
-
-.won {
-  color: #00cc00;
+.bid-history-item p span {
   font-weight: 600;
+  color: #D4A017;
 }
 
-.lost {
-  color: #ff4444;
+.contact-seller-button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(45deg, #FFD700, #D4A017);
+  color: #1C2526;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
   font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
-@media (max-width: 480px) {
-  .bid-history-item {
-    padding: 10px;
-  }
-  .bid-history-item p {
-    font-size: 0.9em;
-  }
+.contact-seller-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #FFE066, #FFD700);
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+}
+
+.contact-seller-button:disabled {
+  background: #6c757d;
+  color: #FFFFFF;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
 }

@@ -1,58 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-* {
-  font-family: 'Poppins', sans-serif;
-}
-
 .bidder-auction-list {
-  padding: 20px;
-  background: #1c2526;
-  min-height: calc(100vh - 40px);
-  overflow-y: auto;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #1C2526;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
 }
 
 .bidder-auction-list h2 {
-  color: #d4af37;
-  font-size: 2.5em;
-  text-shadow: 0 0 15px #d4af37;
+  color: #FFD700;
+  font-weight: 600;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 4px rgba(255, 215, 0, 0.5);
 }
 
 .auction-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 0 10px;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow-y: auto;
-  max-height: calc(100vh - 100px);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .auction-loading,
 .auction-error,
 .auction-no-auctions {
-  color: #fff;
   text-align: center;
-  padding: 20px;
+  color: #FF6B6B;
+  font-size: 1.2rem;
+  margin: 2rem 0;
 }
 
-.auction-error {
-  color: #ff4444;
+/* BidCard styles */
+.bid-card {
+  background: #2E2E2E;
+  padding: 1rem;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-  .auction-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+.bid-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
 }
 
-@media (max-width: 480px) {
-  .bidder-auction-list h2 {
-    font-size: 2em;
-  }
-  .auction-grid {
-    grid-template-columns: 1fr;
-  }
+.bid-card img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #FFD700;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.bid-card h3 {
+  color: #FFD700;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.bid-card p {
+  margin: 0.3rem 0;
+  color: #FFFFFF;
+}
+
+.bid-card .current-price {
+  color: #D4A017;
+  font-weight: 600;
+}
+
+.bid-card .end-time {
+  color: #FFFFFF;
+  font-size: 0.9rem;
 }

@@ -91,7 +91,7 @@ const UserSelection = () => {
               Seller
             </label>
           </div>
-          <div className="role-item">
+            <div className="role-item">&nbsp;&nbsp;
             <label>
               <input
                 type="radio"
@@ -103,7 +103,7 @@ const UserSelection = () => {
               Bidder
             </label>
           </div>
-          <div className="role-item">
+          {/* <div className="role-item">
             <label>
               <input
                 type="radio"
@@ -114,7 +114,7 @@ const UserSelection = () => {
               />
               Guest User
             </label>
-          </div>
+          </div> */}
         </div>
         <button className="next-button" onClick={handleProceed}>
           PROCEED
