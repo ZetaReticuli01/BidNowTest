@@ -216,7 +216,7 @@ const BidderDashboard = () => {
       return;
     }
 
-    const newSocket = io("http://localhost:9000", {
+    const newSocket = io(`${import.meta.env.VITE_API_URL}`, {
       reconnection: true,
       reconnectionAttempts: Infinity,
       reconnectionDelay: 1000,
@@ -228,7 +228,7 @@ const BidderDashboard = () => {
       try {
         const token = localStorage.getItem("token");
         console.log("Fetching auction details, auctionId:", id, "token:", token);
-        const response = await axios.get(`http://localhost:9000/api/auction/${id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auction/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Auction details response:", response.data);
@@ -242,7 +242,7 @@ const BidderDashboard = () => {
     const fetchAuctionBids = async () => {
       try {
         console.log("Fetching bid history for auction, auctionId:", id);
-        const response = await axios.get(`http://localhost:9000/api/bids/bidsByAuction/${id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bids/bidsByAuction/${id}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         console.log("Fetched bids for auction:", response.data.bids);
@@ -322,7 +322,7 @@ const BidderDashboard = () => {
           <div className="auction-detail">
             <div className="auction-header">
               <h2>{auction.title}</h2>
-              <img src={`http://localhost:9000/uploads/${auction.productImages[0]}`} alt={auction.title} className="auction-image" />
+              <img src={`${import.meta.env.VITE_API_URL}/uploads/${auction.productImages[0]}`} alt={auction.title} className="auction-image" />
             </div>
             <div className="auction-info">
               <p className="description">{auction.desc}</p>

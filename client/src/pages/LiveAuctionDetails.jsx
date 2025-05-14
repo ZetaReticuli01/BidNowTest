@@ -63,7 +63,7 @@ const LiveAuctionDetails = () => {
       try {
         const token = localStorage.getItem("token");
         console.log("Starting fetch for auction details, auctionId:", auctionId, "token:", token);
-        const response = await axiosInstance.get(`http://localhost:9000/api/auction/${auctionId}`, {
+        const response = await axiosInstance.get(`${import.meta.env.VITE_API_URL}/api/auction/${auctionId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Auction details response:", response.data);
@@ -77,7 +77,7 @@ const LiveAuctionDetails = () => {
     const fetchBidHistory = async () => {
       try {
         console.log("Starting fetch for bid history, auctionId:", auctionId);
-        const response = await axiosInstance.get(`http://localhost:9000/api/bids/bidsByAuction/${auctionId}`);
+        const response = await axiosInstance.get(`${import.meta.env.VITE_API_URL}/api/bids/bidsByAuction/${auctionId}`);
         console.log("Fetched bids:", response.data.bids);
         setBids(response.data.bids);
       } catch (err) {

@@ -12,7 +12,7 @@ const ActiveAuctions = () => {
   const fetchActiveAuctions = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:9000/api/auction/seller/status?status=active", {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auction/seller/status?status=active`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAuctions(response.data);

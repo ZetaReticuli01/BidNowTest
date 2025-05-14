@@ -82,7 +82,7 @@ const Chat = () => {
       }
 
       // Fetch auction details to determine recipient's name
-      const auctionResponse = await axios.get(`http://localhost:9000/api/auction/${auctionId}`, {
+      const auctionResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/auction/${auctionId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const auction = auctionResponse.data;
@@ -96,7 +96,7 @@ const Chat = () => {
       }
 
       // Fetch messages
-      const response = await axios.get(`http://localhost:9000/api/chat/${auctionId}`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/chat/${auctionId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("Fetched messages:", response.data.messages);
@@ -140,7 +140,7 @@ const Chat = () => {
       };
 
       // Send message via HTTP
-      const response = await axios.post("http://localhost:9000/api/chat/send", messageData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat/send`, messageData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("Message sent via HTTP:", response.data);

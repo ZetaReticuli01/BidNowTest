@@ -14,7 +14,7 @@ const BidDetails = () => {
     const fetchAuction = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:9000/api/auction/${id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auction/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAuction(response.data);
@@ -36,7 +36,7 @@ const BidDetails = () => {
   return (
     <div className="bid-details">
       <h2>{auction.title}</h2>
-      <img src={`http://localhost:9000/uploads/${auction.productImages[0]}`} alt={auction.title} className="auction-image" />
+      <img src={`${import.meta.env.VITE_API_URL}/uploads/${auction.productImages[0]}`} alt={auction.title} className="auction-image" />
       <p>{auction.desc}</p>
       <p>Current Price: ${auction.currentPrice}</p>
       <p>Ends: {new Date(auction.endTime).toLocaleString()}</p>

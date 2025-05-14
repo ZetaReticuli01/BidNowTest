@@ -13,7 +13,7 @@ const BidForm = ({ auctionId, currentPrice, socket }) => {
       try {
         const token = localStorage.getItem("token");
         console.log("Fetching auction status for auctionId:", auctionId, "with token:", token);
-        const response = await axios.get(`http://localhost:9000/api/auction/${auctionId}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auction/${auctionId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Auction status response:", response.data);
@@ -58,7 +58,7 @@ const BidForm = ({ auctionId, currentPrice, socket }) => {
       }
 
       const response = await axios.post(
-        "http://localhost:9000/api/bids/place",
+        `${import.meta.env.VITE_API_URL}/api/bids/place`,
         { auction: auctionId, amount: parseFloat(amount) },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -3,7 +3,7 @@ import "../styles/BidCard.css";
 
 const BidCard = ({ auction, onClick }) => {
   const imageUrl = auction.productImages && auction.productImages.length > 0
-    ? `http://localhost:9000/uploads/${auction.productImages[0]}`
+    ? `${import.meta.env.VITE_API_URL}/uploads/${auction.productImages[0]}`
     : "https://via.placeholder.com/200";
 
   return (

@@ -26,7 +26,7 @@ const BidHistory = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:9000/api/bids/bidsByUser/${userId}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bids/bidsByUser/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Bids API Response:", response.data);
@@ -45,7 +45,7 @@ const BidHistory = () => {
               return { ...bid, auctionStatus, outcome, currentPrice, seller };
             }
             console.log("Fetching auction details for auctionId:", auctionId);
-            const auctionResponse = await axios.get(`http://localhost:9000/api/auction/${auctionId}`, {
+            const auctionResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/auction/${auctionId}`, {
               headers: { Authorization: `Bearer ${token}` },
             });
             auctionData = auctionResponse.data;

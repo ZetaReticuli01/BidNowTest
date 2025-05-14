@@ -122,7 +122,7 @@ const CreateAuction = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:9000/api/auction",
+        `${import.meta.env.VITE_API_URL}/api/auction`,
         formData,
         {
           headers: {

@@ -94,6 +94,7 @@ const AuthForm = () => {
   const roleFromQuery = searchParams.get("role");
   const role = roleFromQuery || urlRole || "bidder"; // Prioritize query param over URL param
   console.log("AuthForm role:", { urlRole, roleFromQuery, finalRole: role }); // Debug log
+  
 
   useEffect(() => {
     setError(null);
@@ -106,7 +107,7 @@ const AuthForm = () => {
     try {
       let response;
       if (isNewUser) {
-        response = await axios.post("http://localhost:9000/api/auth/register", {
+        response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
           name,
           email,
           password,
@@ -117,7 +118,7 @@ const AuthForm = () => {
         setIsNewUser(false);
         localStorage.setItem("name", name); // Store name from signup
       } else {
-        response = await axios.post("http://localhost:9000/api/auth/login", {
+        response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
           email,
           password,
         });

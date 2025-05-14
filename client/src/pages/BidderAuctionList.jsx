@@ -15,7 +15,7 @@ const BidderAuctionList = () => {
       try {
         const token = localStorage.getItem("token");
         console.log("Fetching auctions with token:", token);
-        const response = await axios.get("http://localhost:9000/api/auction", {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auction`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Fetched auctions:", response.data);

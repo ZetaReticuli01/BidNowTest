@@ -12,7 +12,7 @@ const AuctionDetails = () => {
   useEffect(() => {
     const fetchAuctionDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:9000/api/auction/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auction/${id}`);
         setAuction(response.data);
       } catch (err) {
         setError("Failed to load auction details");
