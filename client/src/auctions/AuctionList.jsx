@@ -9,6 +9,8 @@ const AuctionList = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // test
+
   useEffect(() => {
     const fetchAuctions = async () => {
       try {
