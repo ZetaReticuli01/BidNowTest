@@ -2,6 +2,8 @@ const Auction = require("../models/Auction");
 const schedule = require("node-schedule"); // Ensure this is installed with `npm install node-schedule`
 
 exports.createAuction = async (req, res) => {
+  console.log("User from middleware:", req.user);  // 👈 ADD THIS
+
   try {
     const {
       title,

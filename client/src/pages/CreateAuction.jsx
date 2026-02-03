@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/CreateAuction.css";
 
+
+
 const CreateAuction = () => {
   const navigate = useNavigate();
   const [auctionData, setAuctionData] = useState({
@@ -70,6 +72,7 @@ const CreateAuction = () => {
       setLoading(false);
       return;
     }
+
 
     const now = new Date();
     const startTime = new Date(auctionData.startTime);
