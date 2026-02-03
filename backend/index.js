@@ -104,7 +104,7 @@ app.options("*", cors());
 app.use(express.json());
 
 // Static uploads
-app.use("/uploads", express.static("Uploads"));
+app.use("/uploads", express.static("uploads"));
 
 /* =============================
    SOCKET.IO CONFIG
