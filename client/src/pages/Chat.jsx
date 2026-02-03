@@ -17,7 +17,7 @@ const Chat = () => {
 
   // Initialize WebSocket once
   useEffect(() => {
-    const socketIo = io("http://localhost:9000", {
+    const socketIo = io(import.meta.env.VITE_API_URL, {
       auth: { token: localStorage.getItem("token") },
       reconnection: true,
       reconnectionAttempts: Infinity,
